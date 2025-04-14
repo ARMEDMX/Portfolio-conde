@@ -1,0 +1,528 @@
+/* Reset global */
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #161b22; /* Color de fondo del track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #58a6ff; /* Color del thumb */
+    border-radius: 10px;
+    border: 2px solid #0d1117; /* Borde para integrarlo con el fondo */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #1f6feb; /* Cambio al pasar el mouse */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #58a6ff #161b22;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0d1117;
+    color: #c9d1d9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent; /* Fondo transparente */
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.3s ease-in-out; /* Transición suave al ocultar/mostrar */
+    backdrop-filter: blur(10px); /* Opcional: efecto de desenfoque al fondo */
+}
+
+.navbar.hidden {
+    top: -100px; /* Oculta la navbar cuando haces scroll hacia abajo */
+}
+
+
+/* Logo */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    color: #58a6ff;
+    font-weight: bold;
+}
+
+/* Menú de navegación */
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar-menu li a {
+    text-decoration: none;
+    color: #c9d1d9;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.navbar-menu li a:hover {
+    color: #58a6ff;
+}
+
+/* Botón de la barra de navegación */
+.navbar-button {
+    padding: 10px 20px;
+    background: #58a6ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background 0.3s;
+}
+
+.navbar-button:hover {
+    background: #1f6feb;
+}
+
+/* --- Animación de entrada de la navbar (solo al cargar) --- */
+.animate-navbar .navbar-logo,
+.animate-navbar .navbar-menu li,
+.animate-navbar .navbar-button {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 0.6s ease forwards;
+}
+
+/* Delays para efecto en cascada */
+.animate-navbar .navbar-logo {
+    animation-delay: 0.2s;
+}
+.animate-navbar .navbar-menu li:nth-child(1) {
+    animation-delay: 0.3s;
+}
+.animate-navbar .navbar-menu li:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.animate-navbar .navbar-menu li:nth-child(3) {
+    animation-delay: 0.5s;
+}
+.animate-navbar .navbar-menu li:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.animate-navbar .navbar-menu li:nth-child(5) {
+    animation-delay: 0.7s;
+}
+.animate-navbar .navbar-button {
+    animation-delay: 0.8s;
+}
+
+/* Keyframes de animación hacia abajo */
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+    margin-top: 0; /* Ya no es necesario porque usamos min-height en `.home` */
+}
+
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px; /* Ajusta según el alto de tu navbar */
+    padding-bottom: 20px;
+}
+
+
+/* Sección de texto */
+.text-section {
+    width: 50%; /* La mitad del contenedor */
+}
+
+.text-section h1 {
+    font-size: 3rem;
+}
+
+.highlight {
+    color: #58a6ff;
+}
+
+.developer {
+    color: #1f6feb;
+}
+
+.text-section h2 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
+    background: #58a6ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #1f6feb;
+}
+
+/* Sección de imagen */
+.image-section {
+    width: 300px; /* Tamaño fijo del contenedor */
+    height: 300px;
+    overflow: hidden;
+    border-radius: 20px; /* Bordes redondeados */
+    position: relative;
+    flex-shrink: 0; /* Evita que el contenedor se reduzca */
+}
+
+.image-section img {
+    width: 300px; /* Tamaño fijo de la imagen */
+    height: 300px;
+    object-fit: cover; /* Mantiene la relación de aspecto */
+    object-position: top center; /* Asegura el recorte correcto */
+    border-radius: 20px; /* Bordes redondeados */
+}
+
+/* Consulta de medios para resoluciones pequeñas (612px o menores) */
+@media (max-width: 1007px) {
+    .container {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center; /* Centra el contenido */
+        justify-content: flex-start; /* Alinea los elementos al principio */
+        gap: 10px; /* Reduce el espacio entre imagen y texto */
+        margin-top: 0px; /* Asegura que no se solape con la barra de navegación */
+    }
+
+    /* Sección de imagen */
+    .image-section {
+        width: 200px; /* Ajusta el tamaño de la imagen para pantallas pequeñas */
+        height: 200px;
+        margin-bottom: 20px; /* Añade un espacio entre la imagen y el texto */
+    }
+
+    .image-section img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Mantiene el recorte correcto */
+        object-position: top center;
+        border-radius: 20px;
+    }
+
+    /* Sección de texto */
+    .text-section {
+        width: 100%; /* Asegura que el texto ocupe el 100% del ancho disponible */
+        text-align: center; /* Centra el texto */
+    }
+
+    .text-section h1 {
+        font-size: 2.5rem; /* Ajusta el tamaño del texto */
+    }
+
+    .text-section h2 {
+        font-size: 2rem; /* Ajusta el tamaño del texto */
+    }
+
+    button {
+        padding: 8px 15px; /* Ajusta el tamaño del botón */
+    }
+}
+
+/* Consulta de medios para resoluciones extremadamente pequeñas */
+@media (max-width: 150px) {
+    .image-section {
+        width: 300px;
+        height: 300px;
+    }
+
+    .image-section img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+
+/* Consulta de medios para resoluciones de 850px o menores */
+@media (max-width: 850px) {
+    .navbar-menu {
+        display: none; /* Oculta el menú en pantallas pequeñas */
+    }
+}
+
+/* Estilo base: ocultar y preparar animación */
+.text-section h1,
+.text-section h2,
+.text-section p,
+.text-section button {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Animaciones en cascada */
+.text-section h1 {
+    animation-delay: 0.2s;
+}
+.text-section h2 {
+    animation-delay: 0.4s;
+}
+.text-section p {
+    animation-delay: 0.6s;
+}
+.text-section button {
+    animation-delay: 0.8s;
+}
+
+/* Definición de la animación */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#typewriter::after {
+    content: "|";
+    color: #fff;
+    animation: blink 0.8s steps(1) infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+
+/* Sección de imagen */
+.image-section img {
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    opacity: 0.8; /* Opacidad reducida por defecto */
+}
+
+.image-section img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    opacity: 1; /* Restaura la opacidad al pasar el ratón */
+}
+
+/* Añadir animación a la sección de la fotografía */
+.image-section {
+    transition: transform 0.5s ease;
+}
+
+.image-section:hover {
+    transform: scale(1.03); /* Efecto de zoom en el contenedor */
+}
+
+/* Efecto de animación al cargar */
+.image-section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.2s;
+}
+
+/* Animación de la fotografía */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    z-index: -1;
+    background: #0d1117;
+    pointer-events: none;
+}
+
+
+
+
+/* Sección About Me y Services */
+.about-me,
+.services {
+    min-height: 100vh; /* Ocupa toda la altura del viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px; /* Asegura espacio para la navbar */
+}
+
+/* Contenido de texto centrado */
+.about-me .text-section,
+.services .container {
+    text-align: center;
+    max-width: 800px;
+}
+
+
+/* Estilos individuales para los ítems de servicios */
+.service-item {
+    background: #161b22;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+/* About Me - Construcción creativa */
+.about-me {
+    position: relative; /* Necesario para usar el position absoluto en el contenedor de la imagen */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Apilar los elementos de arriba hacia abajo */
+    justify-content: center;
+    align-items: center; /* Asegura que la imagen y el texto estén centrados */
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    overflow: hidden;
+}
+
+
+/* Contenedor de la imagen Pending */
+.pending-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* Ajusta el tamaño máximo de la imagen */
+    margin-bottom: 20px; /* Espacio entre la imagen y el texto */
+    z-index: 1;
+    padding-top: 20px;
+}
+
+/* Imagen más pequeña */
+.pending-image {
+    width: 100%; /* Ajusta el tamaño de la imagen según el contenedor */
+    height: auto;
+    opacity: 0.9;
+    object-fit: cover;
+}
+
+/* Estilo base: ocultar y preparar animación para la sección About Me */
+.about-me .icon-section,
+.about-me .pending-image-container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s, transform 1s;  /* Transición para animación */
+}
+
+/* Cuando se añade la clase 'animate', los elementos aparecerán */
+.about-me.animate .icon-section,
+.about-me.animate .pending-image-container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Sección de texto debajo de la imagen */
+.icon-section {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    color: #c9d1d9;
+}
+
+.icon-section h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #58a6ff;
+}
+
+.icon-section p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: #c9d1d9;
+    margin-bottom: 30px;
+}
+
+
+/* Definición de la animación */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animaciones en cascada */
+.about-me .icon-section {
+    animation-delay: 0.2s;
+}
+
+.about-me .pending-image-container {
+    animation-delay: 0.4s;
+}
+
+/* Efecto de animación al hacer scroll */
+.fadeInSection {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s, transform 1s;
+}
+
+.fadeInSection.visible {
+    opacity: 1;
+    transform: translateY(0);
+    background-color: transparent; 
+}
