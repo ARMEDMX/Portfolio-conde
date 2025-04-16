@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Keneth Conde - Desarrollador Fullstack. Portafolio profesional con proyectos en Laravel, Vue.js y más.">
     <title>Portfolio - Keneth Conde</title>
     <link rel="stylesheet" href="CSS/style.css">
     <!-- Favicon setup -->
@@ -19,6 +20,8 @@
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="src/images/favicon/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
 </head>
 <body>
@@ -31,8 +34,8 @@
                 <span class="logo-text">CONDEV</span>
             </div>
             <ul class="navbar-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Me</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-me">About Me</a></li>
                 <li><a href="#">Projects</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
@@ -41,7 +44,7 @@
         </nav>
     </header>
     
-    <section class="home fadeInSection" id="home">
+    <section class="home fadeInSection visible" id="home">
         <div class="container">
             <div class="image-section">
                 <img src="src/images/foto5.jpeg" alt="Keneth Conde">
@@ -49,8 +52,16 @@
             <div class="text-section">
                 <h1>Hi, I'm <span class="highlight">Keneth Salomon Conde Cruz</span></h1>
                 <h2>I'm a <span class="developer" id="typewriter" ></span></h2>
+                <div class="social-icons wide">
+                  <a href="https://github.com/ARMEDMX" target="_blank" class="icon github"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/keneth-salomon-conde-cruz-679a99239/" target="_blank" class="icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="https://www.tiktok.com/@armedcondemx" target="_blank" class="icon tiktok"><i class="fab fa-tiktok"></i></a>
+                  <a href="https://www.youtube.com/@tu_usuario" target="_blank" class="icon youtube"><i class="fab fa-youtube"></i></a>
+                </div>                            
                 <br>
-                <button>Get in Touch</button>
+                <a href="src/docs/Get_most_recent_CV.pdf" class="btn-download" target="_blank" download>
+                  Download My CV (EN)
+                </a>
             </div>
         </div>
     </section>
@@ -58,23 +69,63 @@
     
     <!-- About Me Section -->
     <!-- About Me Section - En construcción creativa -->
-    <section class="about-me fadeInSection" id="about-me">
-        <div class="container">
-            <!-- Pending Image Over the Text -->
-            <div class="pending-image-container">
-                <img src="src/images/pending.png" alt="Pending Construction" class="pending-image">
+    <section class="about-me" id="about-me">
+      <h2 class="timeline-title">Mi Trayectoria Profesional</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div class="timeline-date">2025</div>
+              <div class="timeline-company">Clever Cloud MX</div>
             </div>
-    
-            <div class="icon-section">
-                <h2><span class="highlight">About Me</span> — En construcción 🚧</h2>
-                <p>
-                    Actualmente estoy en una constante evolución como desarrollador. <br>
-                    Cada línea de código representa una nueva herramienta que añado a mi caja profesional. <br>
-                    ¡El sitio se encuentra en mejoras para mostrar todo mi potencial como <span class="highlight">Web Developer</span>!
-                </p>
+            <div class="timeline-content">
+              <span class="timeline-duration"><i class="fas fa-calendar-alt"></i> Julio 2024 - Enero 2025</span>
+              <span class="timeline-role"><i class="fas fa-briefcase"></i> Software Engineer Intern </span>
+              <h3>Intern Especializado en Desarrollo Web</h3>
+              <p class="highlighted-paragraph">
+                Primera experiencia en una startup, donde asumí responsabilidades clave y lideré el rediseño total de proyectos con aprobación completa del cliente. Propuse soluciones innovadoras y recibí feedback semanal que impulsó mejoras continuas. Contribuí en frontend y backend, enfocándome en rendimiento, UX y desarrollo personalizado.
+              </p>
+            </div>            
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div class="timeline-date">2024</div>
+              <div class="timeline-company">Presidencia Municipal de Nava Coahuila</div>
             </div>
+            <div class="timeline-content">
+              <span class="timeline-duration"><i class="fas fa-calendar-alt"></i> Febrero 2024 - Junio 2024</span>
+              <span class="timeline-role"><i class="fas fa-briefcase"></i> Full Stack Developer </span>
+              <h3>Residencia Profesional</h3>
+              <p class="highlighted-paragraph">
+                Lideré el rediseño completo de una aplicación para el DIF y Presidencia Municipal, conectando ambas instituciones en una plataforma moderna. Transformé procesos manuales en digitales, mejorando el control de recursos, la eficiencia institucional y la transparencia hacia los ciudadanos.
+              </p>
+            </div>  
+          </div>
+      
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div class="timeline-date">2023</div>
+              <div class="timeline-company">INNOVATEC</div>
+            </div>
+            <div class="timeline-content">
+              <span class="timeline-duration"><i class="fas fa-calendar-alt"></i> Febrero 2023 - Mayo 2023</span>
+              <span class="timeline-role"><i class="fas fa-briefcase"></i> Full Stack Developer</span>
+              <span class="timeline-badge"><i class="fas fa-award"></i> Competencia Estudiantil</span>
+              <h3>Competencia Estudiantil INNOVATEC 2023 – Proyecto BarberBook</h3>
+              <p class="highlighted-paragraph">
+                Como participante en la competencia estudiantil INNOVATEC 2023, lideré una investigación en mi municipio sobre las necesidades de las barberías locales. Analicé sus desafíos y propuse una solución digital para impulsar su presencia en línea y mejorar su gestión interna. A través de la web app BarberBook, facilitamos la promoción de servicios, la administración de ventas y la interacción con clientes, modernizando procesos manuales con herramientas accesibles y eficientes.
+              </p>
+            </div>
+          </div>
+
+          
         </div>
-    </section>
+      </section>
+      
+    
     
 
     

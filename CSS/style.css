@@ -270,20 +270,9 @@ button:hover {
     button {
         padding: 8px 15px; /* Ajusta el tamaño del botón */
     }
+    
 }
 
-/* Consulta de medios para resoluciones extremadamente pequeñas */
-@media (max-width: 150px) {
-    .image-section {
-        width: 300px;
-        height: 300px;
-    }
-
-    .image-section img {
-        width: 300px;
-        height: 300px;
-    }
-}
 
 
 /* Consulta de medios para resoluciones de 850px o menores */
@@ -354,12 +343,10 @@ button:hover {
 }
 
 /* Añadir animación a la sección de la fotografía */
-.image-section {
-    transition: transform 0.5s ease;
-}
+
 
 .image-section:hover {
-    transform: scale(1.03); /* Efecto de zoom en el contenedor */
+    transition: transform 0.4s ease; /* Efecto de zoom en el contenedor */
 }
 
 /* Efecto de animación al cargar */
@@ -435,11 +422,250 @@ button:hover {
     justify-content: center;
     align-items: center; /* Asegura que la imagen y el texto estén centrados */
     text-align: center;
-    padding: 80px 20px;
-    background-color: #0d1117;
+    padding: 100px 20px;
     color: #c9d1d9;
     overflow: hidden;
 }
+
+.timeline {
+    width: 100%;
+    padding: 50px 0;
+    position: relative;
+    overflow-x: hidden;
+    
+  }
+  
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px; /* Cambiamos de 18px a 26px para centrar más visualmente */
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #58a6ff;
+    border-radius: 2px;
+}
+
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    position: relative;
+    opacity: 1;
+    padding-left: 60px; /* Espacio para línea + punto */
+}
+
+
+.timeline-dot {
+    position: absolute;
+    left: 24px; /* Igual que la línea */
+    top: 8px; /* Ajuste fino para que esté más centrado respecto al texto */
+    width: 16px;
+    height: 16px;
+    background-color: #58a6ff;
+    border: 3px solid #0d1117;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 4px #58a6ff33;
+}
+
+
+.timeline-date {
+    font-weight: bold;
+    color: #58a6ff;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.timeline-content {
+    background: rgba(22, 27, 34, 0.85);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    font-size: 16px;
+    width: 100%;
+}
+
+.timeline-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffffff; /* O el color que estés usando */
+}
+
+.timeline-content p {
+    font-size: 17px;
+    color: #8b949e;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px; /* Ajustable */
+    width: 100%;
+}
+
+.timeline-company {
+  font-style: italic;
+  color: #999; /* O el color que prefieras */
+  
+}
+
+.timeline-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #58a6ff; /* Un color vibrante estilo neón suave */
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease;
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
+  }
+
+  .timeline-title::before,
+.timeline-title::after {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background: #00d4ff;
+  margin: 0 15px;
+  vertical-align: middle;
+  opacity: 0.7;
+  box-shadow: 0 0 5px rgba(0, 212, 255, 0.4);
+}
+
+
+.timeline-duration {
+    font-size: 0.9rem;
+    color: #00d4ff;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    background-color: rgba(0, 212, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 6px rgba(0, 212, 255, 0.3);
+    backdrop-filter: blur(3px);
+  }
+
+  .timeline-role {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.highlighted-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #ddd;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 12px 15px;
+    border-left: 3px solid #00d4ff;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.timeline-badge {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #333;
+    background-color: #e0e0e0;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    margin-left: 10px;
+    font-weight: 500;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #00d4ff;
+    color: #000;
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+    border-color: transparent;
+}
+
+
+
+  @media (max-width: 600px) {
+    .timeline-duration {
+      font-size: 0.85rem;
+      padding: 3px 8px;
+    }
+  }
+  
+  
+
+/* Animación */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .timeline::before,
+    .timeline-dot {
+        left: 24px; /* mismo valor para alinear la línea y el punto */
+    }
+
+    .timeline-date {
+        text-align: left;
+        width: auto;
+        margin-bottom: 10px;
+    }
+
+    .timeline-dot {
+        top: 10px;
+        left: 18px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0;
+        padding-left: 50px;
+    }
+
+    .timeline-content {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
 
 
 /* Contenedor de la imagen Pending */
@@ -497,14 +723,6 @@ button:hover {
 }
 
 
-/* Definición de la animación */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Animaciones en cascada */
 .about-me .icon-section {
     animation-delay: 0.2s;
@@ -516,13 +734,58 @@ button:hover {
 
 /* Efecto de animación al hacer scroll */
 .fadeInSection {
-    opacity: 0;
-    transform: translateY(50px);
+    opacity: 1; /* Deja que se muestre por defecto */
+    transform: none;
     transition: opacity 1s, transform 1s;
 }
+
 
 .fadeInSection.visible {
     opacity: 1;
     transform: translateY(0);
-    background-color: transparent; 
+}
+
+.social-icons.wide {
+    display: flex;
+    justify-content: space-between;
+    max-width: 530px; /* o el ancho de tu <h1> */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Colores por red social */
+.icon.github:hover {
+    color: #6e5494; /* Morado GitHub */
+}
+
+.icon.linkedin:hover {
+    color: #0077b5; /* Azul LinkedIn */
+}
+
+.icon.tiktok:hover {
+    color: #ff0050; /* Rosa TikTok */
+}
+
+.icon.youtube:hover {
+    color: #ff0000; /* Rojo YouTube */
 }
